@@ -7,6 +7,7 @@ import {
   ModelInfo,
   fetchWithTimeout,
   checkService as checkServiceUtil,
+  getVersion,
   isFakeOllama,
   generateRequestBody,
   calculateTPS,
@@ -119,14 +120,20 @@ async function checkSingleService(url: string): Promise<OllamaService | null> {
   
   try {
     const models = await checkService(url);
+    const version = await getVersion(url);
     const result: OllamaService = {
       server: url,
       models: [],
+      version: '',
       tps: 0,
       lastUpdate: new Date().toISOString(),
       status: 'loading'
     };
     
+    if (version) {
+      result.version = version;
+    }
+
     if (models && models.length > 0) {
       try {
         const tpsResult = await measureTPS(url, models[0]);
