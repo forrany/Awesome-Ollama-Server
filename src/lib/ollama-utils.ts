@@ -48,6 +48,29 @@ export async function fetchWithTimeout(url: string, options: RequestInit = {}, t
   }
 }
 
+// 获取 ollama 的版本。
+export async function getVersion(url: string): Promise<ModelInfo[] | null> {
+  try {
+    const response = await fetchWithTimeout(`${url}/api/version`, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+      },
+    });
+
+    if (!response.ok) {
+      console.log(`服务返回非 200 状态码: ${url}, 状态码: ${response.status}`);
+      return null;
+    }
+
+    const data = await response.json();
+    return data.version || "";
+  } catch (error) {
+    console.error('获取版本失败:', error);
+    return null;
+  }
+}
+
 // 检查服务可用性并获取模型列表
 export async function checkService(url: string): Promise<ModelInfo[] | null> {
   try {
