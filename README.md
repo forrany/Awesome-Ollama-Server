@@ -216,3 +216,5 @@ docker run -d -p 3000:3000 --name ollama-monitor \
 ```
 
 访问 [http://localhost:3000](http://localhost:3000/) 查看应用。
+
+- [Persona](https://github.com/jayamitkatariya/personacli) - Local-first personal workspace: notes, tasks, and AI chat over plain Markdown files. Connects to Ollama for free private AI.
