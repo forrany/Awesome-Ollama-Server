@@ -160,7 +160,7 @@ VincentKo (@forrany) - [GitHub](https://github.com/forrany)
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=forrany/Awesome-Ollama-Server&type=Date)](https://star-history.com/#forrany/Awesome-Ollama-Server&Date)
+[![Star History Chart](https://star-history.dera.page/svg?repos=forrany/Awesome-Ollama-Server&type=Date)](https://star-history.dera.page/#forrany/Awesome-Ollama-Server&Date)
 
 ## Docker 部署
 
